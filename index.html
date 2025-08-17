@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishi Chawla | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 0 80px;
+            text-align: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .skills {
+            margin-top: 30px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            border-radius: 5px;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            top: 30px;
+            transform: rotate(45deg);
+            box-shadow: 5px -5px 10px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+        }
+
+        .timeline-date {
+            position: absolute;
+            width: 120px;
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: -150px;
+            top: 20px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-date {
+            left: -150px;
+            top: 20px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            top: 30px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .timeline-content h4 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        /* Projects/Achievements */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .project-info p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-tag {
+            background-color: var(--light);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .timeline::before {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-dot {
+                left: 21px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-date,
+            .timeline-item:nth-child(even) .timeline-date {
+                left: 70px;
+                right: auto;
+                top: -15px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -10px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 30px;
+                transition: all 0.5s ease;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            header {
+                padding: 40px 0 60px;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <img src="WhatsApp Image 2025-08-17 at 16.51.30_bffaeb7c.jpg" alt="Rishi Chawla" class="profile-img">
+            <div class="header-content">
+                <h1>Rishi Chawla</h1>
+                <p>Technical Leader | Manufacturing Innovation | Operational Excellence</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/rishi-chawla-b302276/"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:rishi1976@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Rishi Chawla</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="about-image.jpg" alt="Rishi Chawla">
+                </div>
+                <div class="about-text">
+                    <h3>Seasoned Supply Chain and Operations Expert</h3>
+                    <p>With 26+ years in FMCG leadership at Hindustan Unilever, GSK, ITC Foods, and Amul, I specialize in manufacturing strategy, process innovation, and operational excellence. Certified Lean Six Sigma Green Belt and Energy Manager with a B.Tech in Dairy & Food Technology.</p>
+                    <p>Proven track record in driving digital transformation, cost optimization, and new technology deployment across global markets including India, Sri Lanka, Bangladesh, and Malaysia.</p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Manufacturing Strategy</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Process Innovation</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Lean Six Sigma</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2021 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Hindustan Unilever Limited</h3>
+                        <h4>Technical Lead - Nutrition</h4>
+                        <ul>
+                            <li>Drive digital transformation and performance management across manufacturing sites</li>
+                            <li>Developed extrusion-based technology reducing utilities by 75% and manpower by 40%</li>
+                            <li>Led capacity unlocks of 25% for Horlicks and 17% for Boost</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2020 - 2021</div>
+                    <div class="timeline-content">
+                        <h3>Hindustan Unilever Limited</h3>
+                        <h4>Sr. Manager - Value Innovation & Process Development</h4>
+                        <ul>
+                            <li>Delivered INR 21+ Cr annual savings through formulation optimization</li>
+                            <li>Supported 7KT capacity enhancement through process optimization</li>
+                            <li>Developed novel flavor manufacturing for Nutrition business</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2015 - 2020</div>
+                    <div class="timeline-content">
+                        <h3>GSK Consumer Healthcare / HUL</h3>
+                        <h4>Site Technical Lead</h4>
+                        <ul>
+                            <li>Transformed Sonepat site to multi-product facility, improving capacity utilization</li>
+                            <li>Reduced deviations from 54% to 8% through quality remediation</li>
+                            <li>Implemented desiccant-based dehumidification and bulk bag solutions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Achievements</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="image.png" alt="Technology Innovation">
+                    </div>
+                    <div class="project-info">
+                        <h3>Novel Extrusion Technology</h3>
+                        <p>Developed exclusive extrusion-based technology for Horlicks manufacturing, achieving 75% utilities and 40% manpower reduction.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Innovation</span>
+                            <span class="project-tag">Efficiency</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="capacity-planning.webp" alt="Capacity Optimization">
+                    </div>
+                    <div class="project-info">
+                        <h3>Capacity Unlocks</h3>
+                        <p>Optimized processes to unlock 25% capacity for Horlicks and 17% for Boost in traditional technology.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Process Optimization</span>
+                            <span class="project-tag">Productivity</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="costs3.jpg" alt="Cost Savings">
+                    </div>
+                    <div class="project-info">
+                        <h3>INR 21+ Cr Annual Savings</h3>
+                        <p>Delivered significant cost savings through formulation optimization and process reengineering.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Value Engineering</span>
+                            <span class="project-tag">Cost Reduction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+   <section id="skills">
+    <div class="container">
+        <div class="section-title">
+            <h2>Core Competencies</h2>
+            <p class="section-subtitle">26+ years of expertise across manufacturing, technology, and leadership</p>
+        </div>
+        
+        <div class="skills-container">
+            <div class="skills-grid">
+                <!-- Card 1 -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Operations Excellence</h3>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="95"></div>
+                    </div>
+                    <ul class="skill-items">
+                        <li><i class="fas fa-check-circle"></i> Manufacturing Strategy</li>
+                        <li><i class="fas fa-check-circle"></i> Lean Six Sigma (Green Belt)</li>
+                        <li><i class="fas fa-check-circle"></i> Process Optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Quality Assurance</li>
+                        <li><i class="fas fa-check-circle"></i> Energy Management</li>
+                    </ul>
+                    <div class="skill-footer">
+                        <span>26 years experience</span>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Technology & Innovation</h3>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="90"></div>
+                    </div>
+                    <ul class="skill-items">
+                        <li><i class="fas fa-check-circle"></i> Process Development</li>
+                        <li><i class="fas fa-check-circle"></i> New Technology Deployment</li>
+                        <li><i class="fas fa-check-circle"></i> Digital Transformation</li>
+                        <li><i class="fas fa-check-circle"></i> Industry 4.0 Automation</li>
+                        <li><i class="fas fa-check-circle"></i> Technical Risk Assessment</li>
+                    </ul>
+                    <div class="skill-footer">
+                        <span>15+ major innovations</span>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Leadership</h3>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar" data-level="85"></div>
+                    </div>
+                    <ul class="skill-items">
+                        <li><i class="fas fa-check-circle"></i> Cross-functional Leadership</li>
+                        <li><i class="fas fa-check-circle"></i> Change Management</li>
+                        <li><i class="fas fa-check-circle"></i> Mentorship & Coaching</li>
+                        <li><i class="fas fa-check-circle"></i> Strategic Planning</li>
+                        <li><i class="fas fa-check-circle"></i> Global Collaboration</li>
+                    </ul>
+                    <div class="skill-footer">
+                        <span>9 Excellence Awards</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Skills Section Styling */
+.skills-container {
+    margin-top: 40px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.skill-card {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.skill-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.skill-bar-container {
+    height: 6px;
+    background: #f0f0f0;
+    border-radius: 3px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.skill-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    border-radius: 3px;
+    width: 0;
+    transition: width 1.5s ease;
+}
+
+.skill-items {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.skill-items li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 30px;
+    color: var(--dark);
+}
+
+.skill-items i {
+    color: var(--secondary);
+    position: absolute;
+    left: 0;
+    top: 3px;
+}
+
+.skill-footer {
+    font-size: 0.9rem;
+    color: var(--gray);
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    font-style: italic;
+}
+
+/* Animation for skill bars */
+@media (min-width: 768px) {
+    .skill-bar[data-level="95"] { width: 95%; }
+    .skill-bar[data-level="90"] { width: 90%; }
+    .skill-bar[data-level="85"] { width: 85%; }
+}
+</style>
+
+<script>
+// Animate skill bars when section comes into view
+document.addEventListener('DOMContentLoaded', function() {
+    const skillBars = document.querySelectorAll('.skill-bar');
+    
+    const animateSkills = () => {
+        skillBars.forEach(bar => {
+            const level = bar.getAttribute('data-level');
+            bar.style.width = level + '%';
+        });
+    };
+
+    // Trigger on scroll or immediately
+    if (window.innerWidth < 768) {
+        animateSkills(); // Mobile - animate immediately
+    } else {
+        // Desktop - animate on scroll
+        window.addEventListener('scroll', function() {
+            const skillsSection = document.getElementById('skills');
+            const position = skillsSection.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (position < screenPosition) {
+                animateSkills();
+            }
+        });
+    }
+});
+
+
+</script>
+<div class="certifications-section">
+    <h3 class="certifications-heading">
+        <i class="fas fa-certificate"></i> Certifications & Accreditations
+    </h3>
+    <div class="certifications-grid">
+        <!-- Certification 1 -->
+        <div class="certification-card">
+            <div class="certification-badge">
+                <i class="fas fa-award"></i>
+            </div>
+            <div class="certification-content">
+                <h4>Six Sigma Green Belt</h4>
+                <p class="certification-org">GlaxoSmithKline</p>
+                <p class="certification-year">2012</p>
+                <div class="certification-tag">
+                    <span>Quality Management</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Certification 2 -->
+        <div class="certification-card">
+            <div class="certification-badge">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <div class="certification-content">
+                <h4>Energy Manager</h4>
+                <p class="certification-org">Bureau of Energy Efficiency, India</p>
+                <p class="certification-year">2011</p>
+                <div class="certification-tag">
+                    <span>Sustainability</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Certification 3 -->
+        <div class="certification-card">
+            <div class="certification-badge">
+                <i class="fas fa-clipboard-check"></i>
+            </div>
+            <div class="certification-content">
+                <h4>TRA L1 Facilitator</h4>
+                <p class="certification-org">GlaxoSmithKline</p>
+                <p class="certification-year">2016</p>
+                <div class="certification-tag">
+                    <span>Risk Assessment</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Certification 4 -->
+        <div class="certification-card">
+            <div class="certification-badge">
+                <i class="fas fa-utensils"></i>
+            </div>
+            <div class="certification-content">
+                <h4>Nutrition Certification</h4>
+                <p class="certification-org">Wageningen University (edX)</p>
+                <p class="certification-year">2022</p>
+                <div class="certification-tag">
+                    <span>Health Science</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Certifications Section Styling */
+.certifications-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(52, 152, 219, 0.05);
+    border-radius: 10px;
+}
+
+.certifications-heading {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.certifications-heading i {
+    color: var(--secondary);
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.certification-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-left: 3px solid var(--secondary);
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.certification-badge {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.certification-content {
+    flex: 1;
+}
+
+.certification-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--primary);
+}
+
+.certification-org {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 5px;
+}
+
+.certification-year {
+    font-size: 0.8rem;
+    color: var(--secondary);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.certification-tag {
+    display: inline-block;
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--secondary);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>rishi1976@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 8168434074</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>India</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Rishi Chawla. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                navLinks.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Sticky navigation on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('sticky', window.scrollY > 0);
+        });
+    </script>
+</body>
+</html>
